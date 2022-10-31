@@ -1,52 +1,60 @@
 package com.solvd.qa.carina.demo;
 
-import com.azure.core.annotation.Post;
+import com.jayway.jsonpath.JsonPath;
+import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
-import com.qaprosoft.carina.core.foundation.api.APIMethodPoller;
 import com.solvd.qa.carina.demo.api.GetAlbumMethod;
+import com.solvd.qa.carina.demo.api.PatchAlbumMethod;
 import com.solvd.qa.carina.demo.api.PostAlbumMethod;
+import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.testng.annotations.Test;
-
-import java.time.temporal.ChronoUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class APIAlbumTest implements IAbstractTest {
     private static final Logger LOGGER = LogManager.getLogger(APIAlbumTest.class);
-    @Test
-    public void testCreateAlbum() {
+
+    @Test(enabled = true)
+    public void createAlbum() {
         LOGGER.info("test post Album");
         PostAlbumMethod api = new PostAlbumMethod();
-        api.setProperties("api/albums/album.properties");
-        AtomicInteger counter = new AtomicInteger(0);
-        api.callAPIWithRetry()
-                .withLogStrategy(APIMethodPoller.LogStrategy.ALL)
-                .peek(rs -> counter.getAndIncrement())
-                .until(rs -> counter.get() == 4)
-                .pollEvery(1, ChronoUnit.SECONDS)
-                .stopAfter(10, ChronoUnit.SECONDS)
-                .execute();
+        api.callAPIExpectSuccess();
         api.validateResponse();
     }
 
-    @Test(enabled = false)
-    public void testCreateAlbumMissingField() {
+    @Test(enabled = true)
+    public void createAlbumMissingField() {
         LOGGER.info("test create Album with missing field");
         PostAlbumMethod api = new PostAlbumMethod();
-        api.setProperties("api/albums/album.properties");
+        api.getProperties().remove("userId");
         api.getProperties().remove("title");
         api.callAPIExpectSuccess();
         api.validateResponse();
     }
 
-    @Test
-    public void testGetAlbum() {
+    @Test(enabled = false)
+    public void getAlbum() {
         LOGGER.info("test get Album");
         GetAlbumMethod getAlbumMethod = new GetAlbumMethod();
         getAlbumMethod.callAPIExpectSuccess();
-//        getAlbumMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-        getAlbumMethod.validateResponse();
+        getAlbumMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getAlbumMethod.validateResponseAgainstSchema("api/albums/_get/rs.schema");
+    }
+
+    @Test(enabled = false)
+    public void patchAlbum() {
+        PostAlbumMethod postAlbumMethod = new PostAlbumMethod();
+        Response postResponse = postAlbumMethod.callAPIExpectSuccess();
+        postAlbumMethod.validateResponse();
+
+        Integer id = JsonPath.read(postResponse.asString(), "$.id");
+        LOGGER.info("id:" + id);
+
+        PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(1);
+        Response response = patchAlbumMethod.callAPIExpectSuccess();
+        patchAlbumMethod.addProperty("id", id);
+        patchAlbumMethod.callAPIExpectSuccess();
+        patchAlbumMethod.validateResponse();
     }
 }

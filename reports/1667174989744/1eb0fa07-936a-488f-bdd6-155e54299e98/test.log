@@ -1,0 +1,47 @@
+[2022-10-31 12:09:50] [1] [WARN] Reporting disabled: using no op test run registrar
+[2022-10-31 12:09:50] [1] [INFO] TEST [demo - createAlbumMissingField] STARTED at [21:09:50 2022-10-30]
+[2022-10-31 12:09:50] [1] [INFO] test create Album with missing field
+[2022-10-31 12:09:50] [1] [INFO] Base properties loaded: api/albums/album.properties
+[2022-10-31 12:09:51] [1] [ERROR] TEST [demo - createAlbumMissingField] FAILED at [21:09:51 2022-10-30] - freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> title  [in template "api/albums/_post/rq.json" at line 8, column 14]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${title}  [in template "api/albums/_post/rq.json" at line 8, column 12]
+----
+
+com.qaprosoft.apitools.builder.MessageBuilder.buildStringMessage(MessageBuilder.java:58)
+com.qaprosoft.apitools.message.TemplateMessage.getMessageText(TemplateMessage.java:111)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.initBodyContent(AbstractApiMethodV2.java:115)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.callAPI(AbstractApiMethodV2.java:121)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.callAPIExpectSuccess(AbstractApiMethodV2.java:156)
+com.solvd.qa.carina.demo.APIAlbumTest.createAlbumMissingField(APIAlbumTest.java:31)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+java.base/java.lang.reflect.Method.invoke(Method.java:577)
+org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+org.testng.TestRunner.privateRun(TestRunner.java:808)
+org.testng.TestRunner.run(TestRunner.java:603)
+org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+org.testng.SuiteRunner.run(SuiteRunner.java:326)
+org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+org.testng.TestNG.runSuites(TestNG.java:1092)
+org.testng.TestNG.run(TestNG.java:1060)
+com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)

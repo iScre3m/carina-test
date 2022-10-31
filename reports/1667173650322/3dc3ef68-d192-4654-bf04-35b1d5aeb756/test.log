@@ -1,0 +1,54 @@
+[2022-10-30 11:47:31] [1] [WARN] Reporting disabled: using no op test run registrar
+[2022-10-30 11:47:31] [1] [INFO] TEST [demo - createAlbum] STARTED at [20:47:31 2022-10-30]
+[2022-10-30 11:47:31] [1] [INFO] test post Album
+[2022-10-30 11:47:31] [1] [INFO] Base properties loaded: api/albums/album.properties
+[2022-10-30 11:47:33] [1] [INFO] Request method:	POST
+Request URI:	https://jsonplaceholder.typicode.com/albums
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Body:
+{
+    "userId": 1,
+    "id": 101,
+    "title": "tuuplssl"
+}
+HTTP/1.1 201 Created
+Date: Sun, 30 Oct 2022 23:48:50 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 53
+Connection: keep-alive
+X-Powered-By: Express
+X-Ratelimit-Limit: 1000
+X-Ratelimit-Remaining: 999
+X-Ratelimit-Reset: 1667173752
+Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+Access-Control-Allow-Credentials: true
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Access-Control-Expose-Headers: Location
+Location: http://jsonplaceholder.typicode.com/albums/101
+X-Content-Type-Options: nosniff
+Etag: W/"35-mU0iDyRIrqYXpVUKMbJgP80q4Ms"
+Via: 1.1 vegur
+CF-Cache-Status: DYNAMIC
+Server-Timing: cf-q-config;dur=4.000001354143e-06
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=YUi6NmGrfXw%2FeOHPnkaMWkQCEideNGN2pUsyyks%2FXLhIvKDM8AVkei7J3j%2Bj%2FlAfIB3kx9J8MsQ9GHV1W%2FXvYR%2FFibN%2FAnrDqh4q28d7%2FYe%2FNvs8w7yvNKFlKe5BedYMMf8Nfg3O%2FVrRST3PTXPk"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 76280b457935a771-EZE
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "userId": 1,
+    "id": 101,
+    "title": "tuuplssl"
+}
+
+[2022-10-30 11:47:33] [1] [INFO] TEST [demo - createAlbum] PASSED at [20:47:33 2022-10-30]
