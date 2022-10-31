@@ -1,6 +1,0 @@
-{
-  <#if userId??>"userId": "${userId}",
-  <#else>"userId":"7",
-  </#if>
-  <#if title??>"title": "${title}"</#if>
-}
