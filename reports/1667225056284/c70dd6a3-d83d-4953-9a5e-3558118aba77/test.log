@@ -1,0 +1,53 @@
+[2022-10-31 02:04:19] [1] [WARN] Reporting disabled: using no op test run registrar
+[2022-10-31 02:04:19] [1] [INFO] TEST [demo - createAlbumMissingField] STARTED at [11:04:19 2022-10-31]
+[2022-10-31 02:04:19] [1] [INFO] test create Album with missing field
+[2022-10-31 02:04:19] [1] [INFO] Base properties loaded: api/albums/album.properties
+[2022-10-31 02:04:19] [1] [INFO] Request method:	POST
+Request URI:	https://jsonplaceholder.typicode.com/albums
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Body:
+{
+    "userId": "7",
+    "title": "bbgkcchj"
+}
+HTTP/1.1 201 Created
+Date: Mon, 31 Oct 2022 14:05:38 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 55
+Connection: keep-alive
+X-Powered-By: Express
+X-Ratelimit-Limit: 1000
+X-Ratelimit-Remaining: 996
+X-Ratelimit-Reset: 1667225172
+Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+Access-Control-Allow-Credentials: true
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Access-Control-Expose-Headers: Location
+Location: http://jsonplaceholder.typicode.com/albums/101
+X-Content-Type-Options: nosniff
+Etag: W/"37-PyYMDRx1EHXZ94YpNpadsf5k9q8"
+Via: 1.1 vegur
+CF-Cache-Status: DYNAMIC
+Server-Timing: cf-q-config;dur=5.9999874792993e-06
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=LE64EhRx60bGZUayTD2rpsv7UpFYR7Q9q13A2KYQDAOjF9ggjj1sPIhRM7cU7V2Ak6MXfim89y9eRrLJ6jFTFSabpnR02RdQ1QJcBaJQYe96oHbYG%2BlyOdgM4ErWm9KwwSXN4w0jEy%2BjXAm68ojP"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 762cf25a3b14a776-EZE
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "userId": "7",
+    "title": "bbgkcchj",
+    "id": 101
+}
+
+[2022-10-31 02:04:19] [1] [INFO] TEST [demo - createAlbumMissingField] PASSED at [11:04:19 2022-10-31]

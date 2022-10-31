@@ -1,0 +1,25 @@
+[2022-10-31 02:04:05] [1] [INFO] 
+============= Test configuration =============
+url=https://jsonplaceholder.typicode.com
+env=DEMO
+selenium_url=http://localhost:4444/wd/hub
+auto_screenshot=true
+project_report_directory=./reports
+max_screen_history=10
+localization_encoding=UTF-8
+selenium_url=http://localhost:4444/wd/hub
+
+------------- Driver capabilities -----------
+capabilities.browserName=chrome
+================================================
+
+[2022-10-31 02:04:05] [1] [WARN] Reporting disabled: using no op test run registrar
+[2022-10-31 02:04:06] [1] [INFO] Reflections took 704 ms to scan 10 urls, producing 2026 keys and 10662 values 
+[2022-10-31 02:04:06] [1] [INFO] [TestNG] Running:
+  C:\Users\Usuario\AppData\Local\JetBrains\IdeaIC2022.1\temp-testng-customsuite.xml
+
+[2022-10-31 02:04:06] [1] [INFO] Set thread-count=1
+[2022-10-31 02:04:06] [1] [INFO] Set data-provider-thread-count=1
+[2022-10-31 02:04:06] [1] [INFO] CARINA_CORE_VERSION: 7.4.26
+[2022-10-31 02:04:08] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2022-10-31 02:04:08] [1] [INFO] RESULT #1: TEST [demo - createAlbumMissingField] PASS [log=file://C:\Users\Usuario\Desktop\carina-test\demo\.\reports\1667225045243/11f550d9-f53e-4b4f-b9b4-eb4240b64c51/test.log]

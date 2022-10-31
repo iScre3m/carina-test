@@ -28,7 +28,6 @@ public class APIAlbumTest implements IAbstractTest {
         LOGGER.info("test create Album with missing field");
         PostAlbumMethod api = new PostAlbumMethod();
         api.getProperties().remove("userId");
-        api.getProperties().remove("title");
         api.callAPIExpectSuccess();
         api.validateResponse();
     }

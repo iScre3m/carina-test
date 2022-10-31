@@ -1,0 +1,135 @@
+[2022-10-31 01:56:47] [1] [WARN] Reporting disabled: using no op test run registrar
+[2022-10-31 01:56:47] [1] [INFO] TEST [demo - createAlbumMissingField] STARTED at [10:56:47 2022-10-31]
+[2022-10-31 01:56:47] [1] [INFO] test create Album with missing field
+[2022-10-31 01:56:47] [1] [INFO] Base properties loaded: api/albums/album.properties
+[2022-10-31 01:56:48] [1] [INFO] Request method:	POST
+Request URI:	https://jsonplaceholder.typicode.com/albums
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Multiparts:		<none>
+Cookies:		<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Body:
+{
+    "userId": "0",
+    
+}
+HTTP/1.1 500 Internal Server Error
+Date: Mon, 31 Oct 2022 13:58:07 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: Express
+X-Ratelimit-Limit: 1000
+X-Ratelimit-Remaining: 996
+X-Ratelimit-Reset: 1667224692
+Vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+Access-Control-Allow-Credentials: true
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Via: 1.1 vegur
+CF-Cache-Status: DYNAMIC
+Server-Timing: cf-q-config;dur=5.9999874792993e-06
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=%2Fn5sM4Ge4c0zyHzxTyn1CzKU3irjqhZ0X2MBk7DVQXjVhVL87w4x1Pjh1hbU%2B0UsH5%2FRMVe1rjczrtcbi1R8XXlt1WRf9LXLX38x%2Fq%2BsW1mtbeBJ5SiemAwVo6m%2FTntYJNTgEQnv7J8GKK9Qa%2FFL"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 762ce755ccc9a782-EZE
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+<html>
+  <body>
+SyntaxError: Unexpected token } in JSON at position 25
+    at JSON.parse (    <anonymous>)
+    at parse (/app/node_modules/body-parser/lib/types/json.js:89:19)
+    at /app/node_modules/body-parser/lib/read.js:121:18
+    at invokeCallback (/app/node_modules/body-parser/node_modules/raw-body/index.js:224:16)
+    at done (/app/node_modules/body-parser/node_modules/raw-body/index.js:213:7)
+    at IncomingMessage.onEnd (/app/node_modules/body-parser/node_modules/raw-body/index.js:273:7)
+    at IncomingMessage.emit (node:events:525:35)
+    at endReadableNT (node:internal/streams/readable:1358:12)
+    at processTicksAndRejections (node:internal/process/task_queues:83:21)</anonymous>
+  </body>
+</html>
+
+[2022-10-31 01:56:48] [1] [ERROR] TEST [demo - createAlbumMissingField] FAILED at [10:56:48 2022-10-31] - 2 expectations failed.
+Expected status code <201> but was <500>.
+
+Expected status line a string containing "Created" doesn't match actual status line "HTTP/1.1 500 Internal Server Error".
+
+
+java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
+java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
+org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
+org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:58)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
+io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
+io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
+io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1705)
+io.restassured.internal.RequestSpecificationImpl.this$2$applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+java.base/java.lang.reflect.Method.invoke(Method.java:577)
+org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1369)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1103)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1009)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:792)
+io.restassured.internal.RequestSpecificationImpl.invokeMethod(RequestSpecificationImpl.groovy)
+org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:46)
+org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:57)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)
+io.restassured.internal.RequestSpecificationImpl.applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy:1710)
+io.restassured.internal.RequestSpecificationImpl.this$2$applyPathParamsAndSendRequest(RequestSpecificationImpl.groovy)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+java.base/java.lang.reflect.Method.invoke(Method.java:577)
+org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1369)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1103)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1009)
+groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:792)
+io.restassured.internal.RequestSpecificationImpl.invokeMethod(RequestSpecificationImpl.groovy)
+org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.call(PogoInterceptableSite.java:46)
+org.codehaus.groovy.runtime.callsite.PogoInterceptableSite.callCurrent(PogoInterceptableSite.java:57)
+org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:203)
+io.restassured.internal.RequestSpecificationImpl.post(RequestSpecificationImpl.groovy:176)
+io.restassured.internal.RequestSpecificationImpl.post(RequestSpecificationImpl.groovy)
+com.qaprosoft.carina.core.foundation.api.http.HttpClient.send(HttpClient.java:43)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethod.callAPI(AbstractApiMethod.java:268)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.callAPI(AbstractApiMethodV2.java:130)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethod.callAPI(AbstractApiMethod.java:248)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.callAPI(AbstractApiMethodV2.java:122)
+com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2.callAPIExpectSuccess(AbstractApiMethodV2.java:156)
+com.solvd.qa.carina.demo.APIAlbumTest.createAlbumMissingField(APIAlbumTest.java:31)
+java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+java.base/java.lang.reflect.Method.invoke(Method.java:577)
+org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
+org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+org.testng.TestRunner.privateRun(TestRunner.java:808)
+org.testng.TestRunner.run(TestRunner.java:603)
+org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+org.testng.SuiteRunner.run(SuiteRunner.java:326)
+org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+org.testng.TestNG.runSuites(TestNG.java:1092)
+org.testng.TestNG.run(TestNG.java:1060)
+com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:66)
+com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:109)
