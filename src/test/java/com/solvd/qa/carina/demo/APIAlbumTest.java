@@ -32,7 +32,7 @@ public class APIAlbumTest implements IAbstractTest {
         api.validateResponse();
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void getAlbum() {
         LOGGER.info("test get Album");
         GetAlbumMethod getAlbumMethod = new GetAlbumMethod();
@@ -50,8 +50,9 @@ public class APIAlbumTest implements IAbstractTest {
         Integer id = JsonPath.read(postResponse.asString(), "$.id");
         LOGGER.info("id:" + id);
 
-        PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(1);
-        Response response = patchAlbumMethod.callAPIExpectSuccess();
+        PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(id);
+        //PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(1);
+        String response = patchAlbumMethod.callAPIExpectSuccess().toString();
         patchAlbumMethod.addProperty("id", id);
         patchAlbumMethod.callAPIExpectSuccess();
         patchAlbumMethod.validateResponse();
