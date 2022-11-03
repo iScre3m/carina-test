@@ -1,18 +1,18 @@
 package com.solvd.qa.carina.demo;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.dataprovider.annotations.XlsDataSourceParameters;
 import com.qaprosoft.carina.core.foundation.utils.tag.Priority;
 import com.qaprosoft.carina.core.foundation.utils.tag.TestPriority;
 import com.solvd.qa.carina.demo.gui.components.FooterStore;
+import com.solvd.qa.carina.demo.gui.pages.AccountPage;
 import com.solvd.qa.carina.demo.gui.pages.ContactUsPage;
 import com.solvd.qa.carina.demo.gui.pages.StoreHomePage;
-import org.openqa.selenium.By;
+import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WebAutomationTest implements IAbstractTest {
-    By tShirtLocator = By.xpath("//a[text()='T-shirts']");
-    By textShirtLocator = By.xpath("//p[text()='shapes and style of our collection!']");
 
     @Test()
     @TestPriority(Priority.P1)
@@ -24,6 +24,7 @@ public class WebAutomationTest implements IAbstractTest {
 
     @Test
     @TestPriority(Priority.P2)
+    @Description("Test to send a message to the customer service")
     public void contactCustomerService() {
         StoreHomePage homePage = new StoreHomePage(getDriver());
         homePage.open();
@@ -54,16 +55,23 @@ public class WebAutomationTest implements IAbstractTest {
         Assert.assertTrue(messageSentSuccessfully);
     }
 
-    @Test
+    @Test(dataProvider = "DataProvider")
     @TestPriority(Priority.P2)
-    public void logIn() {
+    @XlsDataSourceParameters(path = "xls/accounts.xlsx", sheet = "Sheet1", dsUid = "id", dsArgs = "emailaddress,password")
+    public void logIn(String emailaddress, String password) {
         StoreHomePage homePage = new StoreHomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 
         FooterStore footerStore = homePage.getFooterStore();
 
+        AccountPage accountPage = footerStore.openAccountPage();
+        accountPage.setInputEmailAddress(emailaddress);
+        accountPage.setInputPassword(password);
+        accountPage.submitLogin();
 
+        boolean logInFailed = accountPage.isLogInFailed();
+        Assert.assertTrue(logInFailed);
     }
 
 }
