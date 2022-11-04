@@ -10,8 +10,8 @@ import com.qaprosoft.carina.core.foundation.api.http.HttpResponseStatusType;
 import com.qaprosoft.carina.core.foundation.utils.Configuration;
 
 @Endpoint(url = "${base_url}/albums/${id}", methodType = HttpMethodType.PATCH)
-@RequestTemplatePath(path = "api/albums/_post/rq.json")
-@ResponseTemplatePath(path = "api/albums/_post/rs.json")
+@RequestTemplatePath(path = "api/albums/_patch/rq.json")
+@ResponseTemplatePath(path = "api/albums/_patch/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 public class PatchAlbumMethod extends AbstractApiMethodV2 {
     public PatchAlbumMethod() {

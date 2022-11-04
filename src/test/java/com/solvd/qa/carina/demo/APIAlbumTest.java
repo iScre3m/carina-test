@@ -41,18 +41,19 @@ public class APIAlbumTest implements IAbstractTest {
         getAlbumMethod.validateResponseAgainstSchema("api/albums/_get/rs.schema");
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void patchAlbum() {
         PostAlbumMethod postAlbumMethod = new PostAlbumMethod();
         Response postResponse = postAlbumMethod.callAPIExpectSuccess();
         postAlbumMethod.validateResponse();
 
         Integer id = JsonPath.read(postResponse.asString(), "$.id");
-        LOGGER.info("id:" + id);
+        String stringId = id.toString();
+        LOGGER.info("id:" + stringId);
 
         PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(id);
         //PatchAlbumMethod patchAlbumMethod = new PatchAlbumMethod(1);
-        String response = patchAlbumMethod.callAPIExpectSuccess().toString();
+
         patchAlbumMethod.addProperty("id", id);
         patchAlbumMethod.callAPIExpectSuccess();
         patchAlbumMethod.validateResponse();
