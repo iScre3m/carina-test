@@ -1,12 +1,15 @@
 package com.solvd.qa.carina.demo.mobile.gui.pages.android;
 
+import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.solvd.qa.carina.demo.mobile.gui.pages.common.CalculatorBasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class CalculatorPage extends AbstractPage implements IMobileUtils {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = CalculatorBasePage.class)
+public class CalculatorPage extends CalculatorBasePage implements IMobileUtils {
 
     @FindBy(id = "com.google.android.calculator:id/digit_2")
     private ExtendedWebElement twoBtn;
@@ -40,6 +43,10 @@ public class CalculatorPage extends AbstractPage implements IMobileUtils {
         super(driver);
     }
 
+    public boolean isAppLoaded() {
+        return driver.findElements(By.className("android.widget.ImageButton")).size() > 24;
+    }
+
     public int calculateThreePlusThree() {
         threeBtn.click();
         plusBtn.click();
@@ -60,8 +67,5 @@ public class CalculatorPage extends AbstractPage implements IMobileUtils {
         return Integer.parseInt(resultText);
     }
 
-    public boolean isThreeLoaded() {
-        return threeBtn.isElementPresent();
-    }
 
 }
